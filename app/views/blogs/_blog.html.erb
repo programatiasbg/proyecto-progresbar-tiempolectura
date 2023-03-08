@@ -1,0 +1,30 @@
+<div id="<%= dom_id blog %>">
+
+<%= content_tag(:div,"",data:{
+  controller: "reader"
+}) do %>
+  <p>
+    <strong>Title:</strong>
+    <%= blog.title %>
+  </p>
+
+  <p>
+    <strong>User:</strong>
+    <%= blog.user.email.split('@')[0].capitalize %>
+  </p>
+
+  <p>
+    <strong>Reader Time:</strong>
+    <%= content_tag(:span,"",data:{
+      reader_target: "readingTime"
+    })%>
+  </p>
+
+  <div>
+    <strong>Body:</strong>
+    <%= content_tag(:div,blog.body,data: {
+      reader_target: "body"
+    }) %>
+  </div>
+<% end %>
+</div>
